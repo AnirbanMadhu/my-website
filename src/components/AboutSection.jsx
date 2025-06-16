@@ -1,4 +1,5 @@
 import { Briefcase, Code, User } from "lucide-react";
+import ReactTypingEffect from "react-typing-effect";
 
 export const AboutSection = () => {
   return (
@@ -11,7 +12,17 @@ export const AboutSection = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
           <div className="space-y-6">
             <h3 className="text-2xl font-semibold">
-              Passionate Web Developer & Tech Creator
+              <ReactTypingEffect
+                text={[
+                  "Passionate Web Developer",
+                  "Creative UI/UX Designer",
+                  "Tech Explorer & Innovator",
+                ]}
+                speed={80}
+                eraseSpeed={50}
+                eraseDelay={2000}
+                typingDelay={300}
+              />
             </h3>
 
             <p className="text-muted-foreground">

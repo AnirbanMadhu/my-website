@@ -11,6 +11,7 @@ import { cn } from "@/lib/utils";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import emailjs from "emailjs-com";
+import ReactTypingEffect from "react-typing-effect";
 
 export const ContactSection = () => {
   const { toast } = useToast();
@@ -22,13 +23,13 @@ export const ContactSection = () => {
 
     emailjs
       .sendForm(
-        "service_u04wep3", // 👈 Replace this
-        "template_6xmz1yg", // 👈 Replace this
+        "service_u04wep3", // 👈 Replace with your service ID
+        "template_6xmz1yg", // 👈 Replace with your template ID
         e.target,
-        "w0E0s6lKeGp8qcglb"   // 👈 Replace this
+        "w0E0s6lKeGp8qcglb" // 👈 Replace with your user/public key
       )
       .then(
-        (result) => {
+        () => {
           toast({
             title: "Message sent!",
             description: "Thank you for your message. I'll get back to you soon.",
@@ -36,7 +37,7 @@ export const ContactSection = () => {
           e.target.reset();
           setIsSubmitting(false);
         },
-        (error) => {
+        () => {
           toast({
             title: "Error",
             description: "Failed to send message.",
@@ -53,10 +54,18 @@ export const ContactSection = () => {
           Get In <span className="text-primary">Touch</span>
         </h2>
 
-        <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
-          Have a project in mind or want to collaborate? Feel free to reach out.
-          I'm always open to discussing new opportunities.
-        </p>
+        <ReactTypingEffect
+          className="text-center text-lg md:text-xl text-muted-foreground font-medium mb-12"
+          text={[
+            "Let's build something great together.",
+            "Got a project idea? Let's talk.",
+            "I'm available for freelance or collaboration!",
+          ]}
+          speed={70}
+          eraseSpeed={50}
+          eraseDelay={2000}
+          typingDelay={300}
+        />
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div className="space-y-8">
