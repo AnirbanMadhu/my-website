@@ -1,4 +1,4 @@
-import { ArrowRight, ExternalLink, Github } from "lucide-react";
+﻿import { ArrowRight, ExternalLink, Github } from "lucide-react";
 
 const projects = [
   {
@@ -10,16 +10,6 @@ const projects = [
     demoUrl: "https://streamify-24np.onrender.com",
     githubUrl: "https://github.com/AnirbanMadhu/Streamify",
   },
-  // {
-  //   id: 2,
-  //   title: "Orbit Analytics Dashboard",
-  //   description:
-  //     "Interactive analytics dashboard with data visualization and filtering capabilities.",
-  //   image: "/projects/project2.png",
-  //   tags: ["TypeScript", "D3.js", "Next.js"],
-  //   demoUrl: "#",
-  //   githubUrl: "#",
-  // },
   {
     id: 3,
     title: "AI powered Stock Analysis Tool",
@@ -37,15 +27,12 @@ export const ProjectsSection = () => {
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
         <h2 className="text-3xl md:text-4xl font-bold mb-4 text-center">
-          {" "}
           Featured <span className="text-primary"> Projects </span>
         </h2>
-
         <p className="text-center text-muted-foreground mb-12 max-w-2xl mx-auto">
           Here are some of my recent projects. Each project was carefully
           crafted with attention to detail, performance, and user experience.
         </p>
-
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, key) => (
             <div
@@ -59,7 +46,6 @@ export const ProjectsSection = () => {
                   className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               </div>
-
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, index) => (
@@ -68,7 +54,6 @@ export const ProjectsSection = () => {
                     </span>
                   ))}
                 </div>
-
                 <h3 className="text-xl font-semibold mb-1"> {project.title}</h3>
                 <p className="text-muted-foreground text-sm mb-4">
                   {project.description}
@@ -95,7 +80,6 @@ export const ProjectsSection = () => {
             </div>
           ))}
         </div>
-
         <div className="text-center mt-12">
           <a
             className="cosmic-button w-fit flex items-center mx-auto gap-2"
