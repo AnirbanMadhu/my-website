@@ -41,7 +41,7 @@ export const Navbar = () => {
             className="w-8 h-8"
           />
           <span className="relative z-10">
-            <span className="text-glow text-foreground">Anirban's</span>{" "}
+            <span className="text-glow text-foreground">Anirban&apos;s</span>{" "}
             Portfolio
           </span>
         </a>

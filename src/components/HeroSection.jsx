@@ -34,7 +34,7 @@ export const HeroSection = () => {
 
         <div className="space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
-            <span className="opacity-0 animate-fade-in">Hi, I'm</span>
+            <span className="opacity-0 animate-fade-in">Hi, I&apos;m</span>
             <span className="text-primary opacity-0 animate-fade-in-delay-1">
               {" "}
               Anirban
@@ -48,7 +48,7 @@ export const HeroSection = () => {
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto opacity-0 animate-fade-in-delay-3">
             A passionate software engineer with a love for building
             innovative solutions. I specialize in creating seamless user
-            experiences and robust backend systems. Let's bring your ideas to
+            experiences and robust backend systems. Let&apos;s bring your ideas to
             life together!
           </p>
 

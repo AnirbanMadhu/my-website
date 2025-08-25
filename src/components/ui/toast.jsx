@@ -2,6 +2,7 @@ import * as React from "react";
 import * as ToastPrimitives from "@radix-ui/react-toast";
 import { cva } from "class-variance-authority";
 import { X } from "lucide-react";
+import PropTypes from "prop-types";
 
 import { cn } from "@/lib/utils";
 
@@ -90,6 +91,32 @@ const ToastDescription = React.forwardRef(({ className, ...props }, ref) => (
   />
 ));
 ToastDescription.displayName = ToastPrimitives.Description.displayName;
+
+// PropTypes validations
+ToastViewport.propTypes = {
+  className: PropTypes.string,
+};
+
+Toast.propTypes = {
+  className: PropTypes.string,
+  variant: PropTypes.oneOf(['default', 'destructive']),
+};
+
+ToastAction.propTypes = {
+  className: PropTypes.string,
+};
+
+ToastClose.propTypes = {
+  className: PropTypes.string,
+};
+
+ToastTitle.propTypes = {
+  className: PropTypes.string,
+};
+
+ToastDescription.propTypes = {
+  className: PropTypes.string,
+};
 
 export {
   ToastProvider,

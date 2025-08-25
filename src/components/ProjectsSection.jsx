@@ -3,12 +3,12 @@ import { ArrowRight, ExternalLink, Github } from "lucide-react";
 const projects = [
   {
     id: 1,
-    title: "Personalized NewsApp",
-    description: "A beautiful landing page app using React and Tailwind.",
-    image: "/projects/project1.png",
-    tags: ["React", "TailwindCSS", "Supabase"],
-    demoUrl: "#",
-    githubUrl: "#",
+    title: "Streamify ",
+    description: "Streamify, a MERN-based web application for video calling, live streaming, and real-time chat.",
+    image: "/projects/streamify.jpg",
+    tags: ["React", "TailwindCSS", "Socket.io","MERN"],
+    demoUrl: "https://streamify-24np.onrender.com",
+    githubUrl: "https://github.com/AnirbanMadhu/Streamify",
   },
   // {
   //   id: 2,
@@ -22,13 +22,13 @@ const projects = [
   // },
   {
     id: 3,
-    title: "E-commerce Platform",
+    title: "AI powered Stock Analysis Tool",
     description:
-      "Full-featured e-commerce platform with user authentication and payment processing.",
-    image: "/projects/project3.png",
-    tags: ["React", "Node.js", "Stripe"],
-    demoUrl: "#",
-    githubUrl: "#",
+      "AI powered Stock Analysis Tool with real-time data and insights.",
+    image: "/projects/Stock.jpg",
+    tags: ["React", "Python", "Machine Learning"],
+    demoUrl: "https://stock-analyzer-mgnr.onrender.com",
+    githubUrl: "https://github.com/AnirbanMadhu/Stock-Analyzer",
   },
 ];
 
@@ -62,8 +62,8 @@ export const ProjectsSection = () => {
 
               <div className="p-6">
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.tags.map((tag) => (
-                    <span className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
+                  {project.tags.map((tag, index) => (
+                    <span key={index} className="px-2 py-1 text-xs font-medium border rounded-full bg-secondary text-secondary-foreground">
                       {tag}
                     </span>
                   ))}
