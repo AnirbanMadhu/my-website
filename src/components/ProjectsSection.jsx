@@ -11,7 +11,7 @@ const projects = [
     githubUrl: "https://github.com/AnirbanMadhu/Streamify",
   },
   {
-    id: 3,
+    id: 2,
     title: "AI powered Stock Analysis Tool",
     description:
       "AI powered Stock Analysis Tool with real-time data and insights.",
@@ -20,6 +20,17 @@ const projects = [
     demoUrl: "https://stock-analyzer-mgnr.onrender.com",
     githubUrl: "https://github.com/AnirbanMadhu/Stock-Analyzer",
   },
+  {
+  id: 3,
+  title: "Shop Management System",
+  description:
+    "A complete shop management solution featuring inventory control, billing, barcode scanning, and real-time business analytics.",
+  image: "/projects/ShopManagement.jpg",
+  tags: ["Next.js", "Node.js", "PostgreSQL", "Prisma", "Docker"],
+  demoUrl: "https://sptradersandbuilders.cloud",
+  githubUrl: "https://github.com/AnirbanMadhu/JCB-Parts-Shop",
+}
+
 ];
 
 export const ProjectsSection = () => {
