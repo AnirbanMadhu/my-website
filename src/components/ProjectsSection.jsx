@@ -25,7 +25,7 @@ const projects = [
     title: "Shop Management System",
     description:
       "A complete shop management solution featuring inventory control, billing, barcode scanning, and real-time business analytics.",
-    image: "/projects/management_System.jpg",
+    image: "/projects/management_System.png",
     tags: ["Next.js", "Node.js", "PostgreSQL", "Prisma", "Docker"],
     demoUrl: "https://sptradersandbuilders.cloud",
     githubUrl: "https://github.com/AnirbanMadhu/JCB-Parts-Shop",
@@ -55,11 +55,19 @@ export const ProjectsSection = () => {
                 opacity: 0
               }}
             >
-              <div className="h-48 overflow-hidden relative">
+              <div className="h-48 overflow-hidden relative bg-muted">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-125 group-hover:rotate-2"
+                  className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-125 group-hover:rotate-2"
+                  loading="lazy"
+                  onError={(e) => {
+                    console.error(`Failed to load image: ${project.image}`);
+                    e.target.style.display = 'none';
+                  }}
+                  onLoad={(e) => {
+                    console.log(`Successfully loaded: ${project.image}`);
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-secondary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
