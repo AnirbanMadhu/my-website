@@ -21,15 +21,15 @@ const projects = [
     githubUrl: "https://github.com/AnirbanMadhu/Stock-Analyzer",
   },
   {
-  id: 3,
-  title: "Shop Management System",
-  description:
-    "A complete shop management solution featuring inventory control, billing, barcode scanning, and real-time business analytics.",
-  image: "/projects/ShopManagement.jpg",
-  tags: ["Next.js", "Node.js", "PostgreSQL", "Prisma", "Docker"],
-  demoUrl: "https://sptradersandbuilders.cloud",
-  githubUrl: "https://github.com/AnirbanMadhu/JCB-Parts-Shop",
-}
+    id: 3,
+    title: "Shop Management System",
+    description:
+      "A complete shop management solution featuring inventory control, billing, barcode scanning, and real-time business analytics.",
+    image: "/management_system.jpg",
+    tags: ["Next.js", "Node.js", "PostgreSQL", "Prisma", "Docker"],
+    demoUrl: "https://sptradersandbuilders.cloud",
+    githubUrl: "https://github.com/AnirbanMadhu/JCB-Parts-Shop",
+  },
 
 ];
 
@@ -65,7 +65,7 @@ export const ProjectsSection = () => {
 
                 {/* Floating Badge */}
                 <div className="absolute top-4 right-4 bg-gradient-to-r from-primary to-secondary text-white px-3 py-1 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  View Project
+                  View Projects
                 </div>
               </div>
               <div className="p-6 bg-card relative">
