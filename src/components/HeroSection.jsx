@@ -42,13 +42,13 @@ export const HeroSection = () => {
             <span className="opacity-0 animate-fade-in inline-block">Hi, I&apos;m </span>
             <span className="opacity-0 animate-bounce-in inline-block" style={{ animationDelay: '0.2s' }}>
               <span className="text-primary drop-shadow-lg">
-                Anirban
+                 Anirban
               </span>
             </span>
             <span className="opacity-0 animate-scale-in inline-block" style={{ animationDelay: '0.4s' }}>
               {" "}
               <span className="text-gradient font-extrabold drop-shadow-2xl">
-                Madhu
+                 Madhu
               </span>
             </span>
           </h1>
