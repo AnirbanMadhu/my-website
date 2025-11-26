@@ -3,26 +3,25 @@ import { cn } from "@/lib/utils";
 
 const skills = [
   // Frontend
-  { name: "HTML/CSS", category: "frontend" },
-  { name: "JavaScript", category: "frontend" },
-  { name: "React", category: "frontend" },
-  { name: "Tailwind CSS", category: "frontend" },
-  { name: "Next.js", category: "frontend" },
+  { name: "HTML/CSS", category: "frontend", level: 95, icon: "🎨" },
+  { name: "JavaScript", category: "frontend", level: 90, icon: "⚡" },
+  { name: "React", category: "frontend", level: 92, icon: "⚛️" },
+  { name: "Tailwind CSS", category: "frontend", level: 88, icon: "🎭" },
+  { name: "Next.js", category: "frontend", level: 85, icon: "▲" },
 
   // Backend
-  { name: "Node.js", category: "backend" },
-  { name: "Express", category: "backend" },
-  { name: "MongoDB", category: "backend" },
-  { name: "SQL", category: "backend" },
-  { name: "Python", category: "backend" },
-  { name: "Java", category: "backend" },
-  // { name: "GraphQL", level: 60, category: "backend" },
+  { name: "Node.js", category: "backend", level: 87, icon: "🟢" },
+  { name: "Express", category: "backend", level: 85, icon: "🚀" },
+  { name: "MongoDB", category: "backend", level: 82, icon: "🍃" },
+  { name: "SQL", category: "backend", level: 80, icon: "📊" },
+  { name: "Python", category: "backend", level: 78, icon: "🐍" },
+  { name: "Java", category: "backend", level: 75, icon: "☕" },
 
   // Tools
-  { name: "Git/GitHub", category: "tools" },
-   { name: "Docker", category: "tools" },
-   { name: "GoLang", category: "tools" },
-  { name: "VS Code", category: "tools" },
+  { name: "Git/GitHub", category: "tools", level: 90, icon: "🔧" },
+  { name: "Docker", category: "tools", level: 80, icon: "🐳" },
+  { name: "GoLang", category: "tools", level: 70, icon: "🔷" },
+  { name: "VS Code", category: "tools", level: 95, icon: "💻" },
 ];
 
 const categories = ["all", "frontend", "backend", "tools"];
@@ -61,11 +60,35 @@ export const SkillsSection = () => {
           {filteredSkills.map((skill, key) => (
             <div
               key={key}
-              className="bg-card p-6 rounded-lg shadow-xs card-hover"
+              className="gradient-border p-6 card-hover group relative overflow-hidden"
             >
-              <div className="text-center">
-                <h3 className="font-semibold text-lg"> {skill.name}</h3>
+              {/* Icon and Name */}
+              <div className="flex items-center gap-3 mb-4">
+                <span className="text-3xl animate-float" style={{ animationDelay: `${key * 0.1}s` }}>
+                  {skill.icon}
+                </span>
+                <h3 className="font-semibold text-lg">{skill.name}</h3>
               </div>
+
+              {/* Progress Bar */}
+              <div className="relative h-2 bg-muted rounded-full overflow-hidden">
+                <div
+                  className="h-full bg-gradient-to-r from-primary via-secondary to-accent rounded-full transition-all duration-1000 ease-out"
+                  style={{
+                    width: `${skill.level}%`,
+                    animation: 'slide-in-left 1s ease-out forwards',
+                    animationDelay: `${key * 0.05}s`
+                  }}
+                />
+              </div>
+
+              {/* Level Indicator */}
+              <div className="mt-2 text-right">
+                <span className="text-xs font-medium text-primary">{skill.level}%</span>
+              </div>
+
+              {/* Shimmer Effect on Hover */}
+              <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           ))}
         </div>

@@ -1,6 +1,7 @@
 import { Navbar } from "../components/Navbar";
 import { StarBackground } from "@/components/StarBackground";
 import { GradientBlobsSimple } from "../components/GradientBlobs";
+import { FloatingShapes } from "../components/FloatingShapes";
 import { HeroSection } from "../components/HeroSection";
 import { AboutSection } from "../components/AboutSection";
 import { SkillsSection } from "../components/SkillsSection";
@@ -15,6 +16,7 @@ export const Home = () => {
       {/* Background Effects - Amazing Light Mode Gradients */}
       <GradientBlobsSimple />
       <StarBackground />
+      <FloatingShapes />
 
       {/* Navbar */}
       <Navbar />

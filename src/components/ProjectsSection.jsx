@@ -33,35 +33,45 @@ export const ProjectsSection = () => {
           Here are some of my recent projects. Each project was carefully
           crafted with attention to detail, performance, and user experience.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: '1000px' }}>
           {projects.map((project, key) => (
             <div
               key={key}
-              className="group card-gradient-border card-elevated card-hover relative overflow-hidden"
+              className="group card-gradient-border card-elevated relative overflow-hidden transition-all duration-500 hover:scale-105 hover:-translate-y-2"
+              style={{
+                transformStyle: 'preserve-3d',
+                animation: `slide-in-up 0.6s ease-out ${key * 0.1}s forwards`,
+                opacity: 0
+              }}
             >
               <div className="h-48 overflow-hidden relative">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                  className="w-full h-full object-cover transition-all duration-700 group-hover:scale-125 group-hover:rotate-2"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-secondary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+
+                {/* Floating Badge */}
+                <div className="absolute top-4 right-4 bg-gradient-to-r from-primary to-secondary text-white px-3 py-1 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
+                  View Project
+                </div>
               </div>
-              <div className="p-6 bg-card">
+              <div className="p-6 bg-card relative">
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag, index) => (
                     <span
                       key={index}
-                      className="px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 text-primary border border-primary/20"
+                      className="px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 text-primary border border-primary/30 hover:border-primary hover:scale-110 transition-all duration-300 cursor-default shimmer"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
-                <h3 className="text-xl font-bold mb-2 group-hover:text-gradient transition-all duration-300">
+                <h3 className="text-xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-secondary group-hover:from-primary group-hover:via-secondary group-hover:to-accent transition-all duration-500">
                   {project.title}
                 </h3>
-                <p className="text-muted-foreground text-sm mb-4">
+                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
                   {project.description}
                 </p>
                 <div className="flex justify-between items-center pt-4 border-t border-border">
@@ -70,7 +80,7 @@ export const ProjectsSection = () => {
                       href={project.demoUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-muted hover:bg-primary hover:text-white transition-all duration-300 icon-glow"
+                      className="p-2.5 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary hover:to-secondary hover:text-white transition-all duration-300 icon-glow hover:scale-110 hover:rotate-3"
                     >
                       <ExternalLink size={18} />
                     </a>
@@ -78,12 +88,15 @@ export const ProjectsSection = () => {
                       href={project.githubUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="p-2 rounded-lg bg-muted hover:bg-secondary hover:text-white transition-all duration-300 icon-glow"
+                      className="p-2.5 rounded-lg bg-gradient-to-r from-secondary/10 to-accent/10 hover:from-secondary hover:to-accent hover:text-white transition-all duration-300 icon-glow hover:scale-110 hover:-rotate-3"
                     >
                       <Github size={18} />
                     </a>
                   </div>
                 </div>
+
+                {/* Decorative Corner */}
+                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
             </div>
           ))}
