@@ -23,7 +23,8 @@ export { AnimatedCounter, StatsSection } from './AnimatedCounter';
 export { FloatingElement, FloatingCards } from './FloatingElements';
 
 // Toast Notifications
-export { ToastProvider, showToast, ToastDemo } from './ToastProvider';
+export { ToastProvider, ToastDemo } from './ToastProvider';
+// Note: Import showToast directly from '../utils/toast' instead
 
 // Existing Components (if needed)
 export { HeroSection } from './HeroSection';

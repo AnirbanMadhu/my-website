@@ -61,13 +61,6 @@ export const ProjectsSection = () => {
                   alt={project.title}
                   className="w-full h-full object-cover object-center transition-all duration-700 group-hover:scale-125 group-hover:rotate-2"
                   loading="lazy"
-                  onError={(e) => {
-                    console.error(`Failed to load image: ${project.image}`);
-                    e.target.style.display = 'none';
-                  }}
-                  onLoad={(e) => {
-                    console.log(`Successfully loaded: ${project.image}`);
-                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-secondary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
