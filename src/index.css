@@ -4,17 +4,27 @@
 
 @layer base {
   :root {
-    --background: 210 40% 98%;
+    /* Enhanced Light Mode - Amazing Colors */
+    --background: 220 35% 97%;
     --foreground: 222 47% 11%;
     --card: 0 0% 100%;
     --card-foreground: 222 47% 11%;
-    --primary: 250 47% 60%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
-    --muted: 210 40% 96%;
+    --primary: 262 83% 58%; /* Vibrant purple */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 100% 56%; /* Beautiful blue */
+    --secondary-foreground: 0 0% 100%;
+    --accent: 340 82% 52%; /* Pink accent */
+    --accent-foreground: 0 0% 100%;
+    --success: 142 71% 45%; /* Green */
+    --warning: 38 92% 50%; /* Orange */
+    --muted: 220 35% 94%;
     --muted-foreground: 215 16% 47%;
-    --border: 214 32% 91%;
+    --border: 220 13% 91%;
+
+    /* Gradient colors */
+    --gradient-from: 262 83% 58%;
+    --gradient-via: 210 100% 56%;
+    --gradient-to: 340 82% 52%;
   }
 
   .dark {
@@ -22,13 +32,21 @@
     --foreground: 213 31% 91%;
     --card: 222 47% 8%;
     --card-foreground: 213 31% 91%;
-    --primary: 250 65% 65%;
+    --primary: 262 83% 65%;
     --primary-foreground: 213 31% 91%;
     --secondary: 217 33% 17%;
     --secondary-foreground: 213 31% 91%;
+    --accent: 340 82% 60%;
+    --accent-foreground: 213 31% 91%;
+    --success: 142 71% 45%;
+    --warning: 38 92% 50%;
     --muted: 217 33% 17%;
     --muted-foreground: 215 20% 65%;
     --border: 217 33% 20%;
+
+    --gradient-from: 262 83% 65%;
+    --gradient-via: 217 33% 30%;
+    --gradient-to: 340 82% 60%;
   }
 
   * {
@@ -42,6 +60,42 @@
   body {
     @apply bg-background text-foreground transition-colors duration-300;
     font-feature-settings: "rlig" 1, "calt" 1;
+    position: relative;
+  }
+
+  /* Light mode amazing background */
+  body:not(.dark)::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+      radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 20%, rgba(244, 114, 182, 0.08) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  body:not(.dark)::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+      radial-gradient(circle at 1px 1px, rgba(99, 102, 241, 0.05) 1px, transparent 0);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  #root {
+    position: relative;
+    z-index: 1;
   }
 }
 
@@ -50,26 +104,197 @@
     @apply max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8;
   }
 
+  /* Gradient Text - Amazing Effect */
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r;
+    background-image: linear-gradient(
+      135deg,
+      hsl(var(--primary)) 0%,
+      hsl(var(--secondary)) 50%,
+      hsl(var(--accent)) 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .text-gradient-animated {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(
+      90deg,
+      hsl(var(--primary)),
+      hsl(var(--secondary)),
+      hsl(var(--accent)),
+      hsl(var(--primary))
+    );
+    background-size: 200% auto;
+    animation: gradient-shift 3s linear infinite;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Glassmorphism - Light Mode */
+  .glass-effect {
+    @apply backdrop-blur-md bg-white/70 border border-white/40;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  }
+
+  .glass-effect-strong {
+    @apply backdrop-blur-xl bg-white/80 border border-white/50;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.2);
+  }
+
+  .dark .glass-effect {
+    @apply backdrop-blur-md bg-gray-900/70 border border-gray-800/40;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  }
+
+  .dark .glass-effect-strong {
+    @apply backdrop-blur-xl bg-gray-900/80 border border-gray-800/50;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  /* Card with Gradient Border */
+  .card-gradient-border {
+    @apply relative rounded-xl overflow-hidden;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg,
+                  hsl(var(--primary)) 0%,
+                  hsl(var(--secondary)) 50%,
+                  hsl(var(--accent)) 100%) border-box;
+    border: 2px solid transparent;
+  }
+
+  .dark .card-gradient-border {
+    background: linear-gradient(hsl(var(--card)), hsl(var(--card))) padding-box,
+                linear-gradient(135deg,
+                  hsl(var(--primary)) 0%,
+                  hsl(var(--secondary)) 50%,
+                  hsl(var(--accent)) 100%) border-box;
+  }
+
+  /* Elevated Card - Light Mode */
+  .card-elevated {
+    @apply bg-white rounded-xl shadow-xl border border-gray-100;
+    box-shadow:
+      0 10px 30px -15px rgba(99, 102, 241, 0.2),
+      0 0 0 1px rgba(99, 102, 241, 0.05);
+  }
+
+  .dark .card-elevated {
+    @apply bg-card border-border;
+    box-shadow:
+      0 10px 30px -15px rgba(0, 0, 0, 0.5),
+      0 0 0 1px rgba(99, 102, 241, 0.1);
+  }
+
   .text-glow {
     @apply relative;
-    text-shadow: 0 0 10px rgba(167, 139, 250, 0.5);
+    text-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
   }
 
   .card-hover {
-    @apply transition-transform duration-300 hover:scale-[1.02] hover:shadow-lg;
+    @apply transition-all duration-300 hover:scale-[1.02];
+  }
+
+  body:not(.dark) .card-hover:hover {
+    box-shadow:
+      0 20px 40px -15px rgba(99, 102, 241, 0.3),
+      0 0 0 1px rgba(99, 102, 241, 0.1);
   }
 
   .gradient-border {
-    @apply relative rounded-md;
-    background: linear-gradient(to right, hsl(var(--card)), hsl(var(--card)));
-    background-clip: padding-box;
-    border: 1px solid transparent;
+    @apply relative rounded-xl;
+    background: linear-gradient(white, white) padding-box,
+                linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary))) border-box;
+    border: 2px solid transparent;
   }
 
+  /* Button with Gradient */
   .cosmic-button {
-    @apply px-6 py-2 rounded-full bg-primary text-primary-foreground font-medium 
-           transition-all duration-300 hover:shadow-[0_0_10px_rgba(139,92,246,0.5)]
-           hover:scale-105 active:scale-95;
+    @apply px-8 py-3 rounded-full font-semibold text-white
+           transition-all duration-300 hover:scale-105 active:scale-95
+           shadow-lg hover:shadow-xl;
+    background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cosmic-button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s;
+  }
+
+  .cosmic-button:hover::before {
+    left: 100%;
+  }
+
+  /* Gradient Background */
+  .gradient-bg {
+    background: linear-gradient(
+      135deg,
+      hsl(var(--gradient-from)) 0%,
+      hsl(var(--gradient-via)) 50%,
+      hsl(var(--gradient-to)) 100%
+    );
+  }
+
+  .gradient-bg-light {
+    background: linear-gradient(
+      135deg,
+      rgba(99, 102, 241, 0.1) 0%,
+      rgba(59, 130, 246, 0.1) 50%,
+      rgba(244, 114, 182, 0.1) 100%
+    );
+  }
+
+  /* Animated Gradient Background */
+  .gradient-animated {
+    background: linear-gradient(
+      -45deg,
+      hsl(var(--primary)),
+      hsl(var(--secondary)),
+      hsl(var(--accent)),
+      hsl(var(--primary))
+    );
+    background-size: 400% 400%;
+    animation: gradient-shift 15s ease infinite;
+  }
+
+  /* Shimmer Effect */
+  .shimmer {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .shimmer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -150%;
+    width: 150%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    animation: shimmer 3s infinite;
+  }
+
+  .dark .shimmer::before {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
   }
 
   .star {
@@ -81,6 +306,27 @@
     @apply absolute bg-gradient-to-r from-white via-white to-transparent rounded-full;
     box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.3);
   }
+
+  /* Icon Glow Effect */
+  .icon-glow {
+    filter: drop-shadow(0 0 8px rgba(99, 102, 241, 0.4));
+    transition: filter 0.3s ease;
+  }
+
+  .icon-glow:hover {
+    filter: drop-shadow(0 0 12px rgba(99, 102, 241, 0.6));
+  }
+}
+
+/* Animations */
+@keyframes gradient-shift {
+  0%, 100% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+}
+
+@keyframes shimmer {
+  0% { left: -150%; }
+  100% { left: 150%; }
 }
 
 #root {

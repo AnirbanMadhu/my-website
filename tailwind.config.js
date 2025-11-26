@@ -18,6 +18,12 @@ export default {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
         },
+        accent: {
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
+        },
+        success: "hsl(var(--success))",
+        warning: "hsl(var(--warning))",
         muted: {
           DEFAULT: "hsl(var(--muted))",
           foreground: "hsl(var(--muted-foreground))",
@@ -36,6 +42,10 @@ export default {
         "fade-in-delay-3": "fade-in 0.7s ease-out 0.6s forwards",
         "fade-in-delay-4": "fade-in 0.7s ease-out 0.8s forwards",
         "meteor": "meteor 5s linear infinite",
+        "blob": "blob 7s infinite",
+        "gradient-x": "gradient-x 15s ease infinite",
+        "gradient-y": "gradient-y 15s ease infinite",
+        "gradient-xy": "gradient-xy 15s ease infinite",
       },
       keyframes: {
         float: {
@@ -55,6 +65,30 @@ export default {
           "70%": { opacity: "1" },
           "100%": { transform: "rotate(215deg) translateX(-500px)", opacity: "0" },
         },
+        blob: {
+          "0%": { transform: "translate(0px, 0px) scale(1)" },
+          "33%": { transform: "translate(30px, -50px) scale(1.1)" },
+          "66%": { transform: "translate(-20px, 20px) scale(0.9)" },
+          "100%": { transform: "translate(0px, 0px) scale(1)" },
+        },
+        "gradient-x": {
+          "0%, 100%": { "background-position": "0% 50%" },
+          "50%": { "background-position": "100% 50%" },
+        },
+        "gradient-y": {
+          "0%, 100%": { "background-position": "50% 0%" },
+          "50%": { "background-position": "50% 100%" },
+        },
+        "gradient-xy": {
+          "0%, 100%": { "background-position": "0% 0%" },
+          "25%": { "background-position": "100% 0%" },
+          "50%": { "background-position": "100% 100%" },
+          "75%": { "background-position": "0% 100%" },
+        },
+      },
+      backgroundSize: {
+        "300%": "300%",
+        "400%": "400%",
       },
     },
   },
