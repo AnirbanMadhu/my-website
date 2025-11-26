@@ -39,17 +39,12 @@ export const HeroSection = () => {
 
         <div className="space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight relative">
-            <span className="opacity-0 animate-fade-in inline-block">Hi, I&apos;m&nbsp; </span>
+            <span className="opacity-0 animate-fade-in inline-block">Hi, I&apos;m&nbsp;</span>
             <span className="opacity-0 animate-bounce-in inline-block" style={{ animationDelay: '0.2s' }}>
-              <span className="text-primary drop-shadow-lg">
-                 Anirban&nbsp;
-              </span>
+              <span className="text-primary drop-shadow-lg">Anirban&nbsp;</span>
             </span>
             <span className="opacity-0 animate-scale-in inline-block" style={{ animationDelay: '0.4s' }}>
-              {" "}
-              <span className="text-gradient font-extrabold drop-shadow-2xl">
-                 Madhu
-              </span>
+              <span className="text-gradient font-extrabold drop-shadow-2xl">Madhu</span>
             </span>
           </h1>
 
