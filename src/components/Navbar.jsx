@@ -25,6 +25,17 @@ export const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMenuOpen]);
+
   return (
     <nav
       className={cn(
@@ -81,20 +92,29 @@ export const Navbar = () => {
       {/* Mobile menu overlay */}
       <div
         className={cn(
-          "fixed inset-0 bg-background/95 backdrop-blur-lg z-40 flex flex-col items-center justify-center",
-          "transition-all duration-300 md:hidden",
+          "fixed inset-0 bg-background/98 backdrop-blur-xl z-40 flex items-center justify-center",
+          "transition-all duration-300 ease-in-out md:hidden",
+          "before:absolute before:inset-0 before:bg-gradient-to-br before:from-primary/10 before:via-transparent before:to-secondary/10",
           isMenuOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+            ? "opacity-100 pointer-events-auto translate-y-0"
+            : "opacity-0 pointer-events-none -translate-y-4"
         )}
       >
-        <div className="flex flex-col space-y-8 text-xl">
+        <div className="relative z-10 flex flex-col items-center space-y-6 px-8 w-full max-w-md">
           {navItems.map((item, key) => (
             <a
               key={key}
               href={item.href}
-              className="text-foreground/80 hover:text-primary transition-colors duration-300 font-medium text-center"
+              className={cn(
+                "text-2xl font-semibold text-foreground/90 hover:text-primary",
+                "transition-all duration-300 text-center w-full py-3",
+                "hover:scale-105 hover:translate-x-2",
+                "border-b border-foreground/10 hover:border-primary/50"
+              )}
               onClick={() => setIsMenuOpen(false)}
+              style={{
+                transitionDelay: isMenuOpen ? `${key * 50}ms` : "0ms"
+              }}
             >
               {item.name}
             </a>
