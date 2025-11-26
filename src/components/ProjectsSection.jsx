@@ -25,7 +25,7 @@ const projects = [
     title: "Shop Management System",
     description:
       "A complete shop management solution featuring inventory control, billing, barcode scanning, and real-time business analytics.",
-    image: "/management_system.jpg",
+    image: "/projects/management_System.jpg",
     tags: ["Next.js", "Node.js", "PostgreSQL", "Prisma", "Docker"],
     demoUrl: "https://sptradersandbuilders.cloud",
     githubUrl: "https://github.com/AnirbanMadhu/JCB-Parts-Shop",
