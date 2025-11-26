@@ -41,17 +41,17 @@ export const HeroSection = () => {
         <div className="space-y-6">
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight">
             <span className="opacity-0 animate-fade-in">Hi, I&apos;m</span>
-            <span className="text-primary opacity-0 animate-fade-in-delay-1">
+            <span className="opacity-0 animate-fade-in-delay-1">
               {" "}
-              <AnimatedText type="underline" color="#6366f1">
+              <span className="text-primary">
                 Anirban
-              </AnimatedText>
+              </span>
             </span>
-            <span className="text-gradient ml-2 opacity-0 animate-fade-in-delay-2">
+            <span className="opacity-0 animate-fade-in-delay-2">
               {" "}
-              <AnimatedText type="circle" color="#8b5cf6">
+              <span className="text-gradient font-extrabold">
                 Madhu
-              </AnimatedText>
+              </span>
             </span>
           </h1>
 
