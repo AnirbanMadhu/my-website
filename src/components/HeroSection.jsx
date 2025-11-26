@@ -2,7 +2,6 @@ import Tilt from "react-parallax-tilt";
 import { ArrowDown } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { ParticlesBackground } from "./ParticlesBackground";
-import { AnimatedText } from "./AnimatedText";
 
 export const HeroSection = () => {
   return (
