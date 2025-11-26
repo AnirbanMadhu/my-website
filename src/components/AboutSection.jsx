@@ -1,5 +1,8 @@
 import { Briefcase, Code, User } from "lucide-react";
 import ReactTypingEffect from "react-typing-effect";
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export const AboutSection = () => {
   return (
@@ -54,71 +57,77 @@ export const AboutSection = () => {
             </div>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-4 justify-center">
-              <a href="#contact" className="cosmic-button group">
-                <span className="flex items-center gap-2">
-                  Get In Touch
-                  <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
-                </span>
-              </a>
+              <Button asChild size="lg" className="cosmic-button group">
+                <a href="#contact">
+                  <span className="flex items-center gap-2">
+                    Get In Touch
+                    <span className="inline-block transition-transform group-hover:translate-x-1">→</span>
+                  </span>
+                </a>
+              </Button>
 
-              <a
-                href="/cv.pdf"
-                download
-                className="px-6 py-3 rounded-full border-2 border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 font-semibold hover:shadow-lg hover:scale-105"
-              >
-                Download CV
-              </a>
+              <Button asChild variant="outline" size="lg">
+                <a href="/cv.pdf" download>
+                  Download CV
+                </a>
+              </Button>
             </div>
           </div>
 
           <div className="grid grid-cols-1 gap-6 opacity-0 animate-slide-in-right">
-            <div className="gradient-border p-6 card-hover group relative overflow-hidden">
-              <div className="flex items-start gap-4 relative z-10">
-                <div className="p-3 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 group-hover:scale-110 transition-transform duration-300 animate-float">
-                  <Code className="h-6 w-6 text-primary" />
+            <Card className="card-hover group relative overflow-hidden">
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4 relative z-10">
+                  <div className="p-3 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 group-hover:scale-110 transition-transform duration-300 animate-float">
+                    <Code className="h-6 w-6 text-primary" />
+                  </div>
+                  <div className="text-left">
+                    <CardTitle className="mb-2 group-hover:text-primary transition-colors">Web Development</CardTitle>
+                    <CardDescription>
+                      Creating responsive websites and web applications with
+                      modern frameworks.
+                    </CardDescription>
+                  </div>
                 </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg mb-2 group-hover:text-primary transition-colors">Web Development</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    Creating responsive websites and web applications with
-                    modern frameworks.
-                  </p>
-                </div>
-              </div>
-              <div className="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
+                <div className="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              </CardContent>
+            </Card>
 
-            <div className="gradient-border p-6 card-hover group relative overflow-hidden" style={{ animationDelay: '0.1s' }}>
-              <div className="flex items-start gap-4 relative z-10">
-                <div className="p-3 rounded-full bg-gradient-to-br from-secondary/20 to-secondary/10 group-hover:scale-110 transition-transform duration-300 animate-float" style={{ animationDelay: '0.5s' }}>
-                  <User className="h-6 w-6 text-secondary" />
+            <Card className="card-hover group relative overflow-hidden" style={{ animationDelay: '0.1s' }}>
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4 relative z-10">
+                  <div className="p-3 rounded-full bg-gradient-to-br from-secondary/20 to-secondary/10 group-hover:scale-110 transition-transform duration-300 animate-float" style={{ animationDelay: '0.5s' }}>
+                    <User className="h-6 w-6 text-secondary" />
+                  </div>
+                  <div className="text-left">
+                    <CardTitle className="mb-2 group-hover:text-secondary transition-colors">UI/UX Design</CardTitle>
+                    <CardDescription>
+                      Designing intuitive user interfaces and seamless user
+                      experiences.
+                    </CardDescription>
+                  </div>
                 </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg mb-2 group-hover:text-secondary transition-colors">UI/UX Design</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    Designing intuitive user interfaces and seamless user
-                    experiences.
-                  </p>
-                </div>
-              </div>
-              <div className="absolute bottom-0 right-0 w-24 h-24 bg-secondary/5 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
+                <div className="absolute bottom-0 right-0 w-24 h-24 bg-secondary/5 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              </CardContent>
+            </Card>
 
-            <div className="gradient-border p-6 card-hover group relative overflow-hidden" style={{ animationDelay: '0.2s' }}>
-              <div className="flex items-start gap-4 relative z-10">
-                <div className="p-3 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 group-hover:scale-110 transition-transform duration-300 animate-float" style={{ animationDelay: '1s' }}>
-                  <Briefcase className="h-6 w-6 text-accent" />
+            <Card className="card-hover group relative overflow-hidden" style={{ animationDelay: '0.2s' }}>
+              <CardContent className="p-6">
+                <div className="flex items-start gap-4 relative z-10">
+                  <div className="p-3 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 group-hover:scale-110 transition-transform duration-300 animate-float" style={{ animationDelay: '1s' }}>
+                    <Briefcase className="h-6 w-6 text-accent" />
+                  </div>
+                  <div className="text-left">
+                    <CardTitle className="mb-2 group-hover:text-accent transition-colors">Project Management</CardTitle>
+                    <CardDescription>
+                      Leading projects from conception to completion with agile
+                      methodologies.
+                    </CardDescription>
+                  </div>
                 </div>
-                <div className="text-left">
-                  <h4 className="font-semibold text-lg mb-2 group-hover:text-accent transition-colors">Project Management</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed">
-                    Leading projects from conception to completion with agile
-                    methodologies.
-                  </p>
-                </div>
-              </div>
-              <div className="absolute bottom-0 right-0 w-24 h-24 bg-accent/5 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
+                <div className="absolute bottom-0 right-0 w-24 h-24 bg-accent/5 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>

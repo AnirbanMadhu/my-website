@@ -1,5 +1,9 @@
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent } from "@/components/ui/card";
+import { Progress } from "@radix-ui/react-progress";
 
 const skills = [
   // Frontend
@@ -27,11 +31,6 @@ const skills = [
 const categories = ["all", "frontend", "backend", "tools"];
 
 export const SkillsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("all");
-
-  const filteredSkills = skills.filter(
-    (skill) => activeCategory === "all" || skill.category === activeCategory
-  );
   return (
     <section id="skills" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
@@ -39,59 +38,55 @@ export const SkillsSection = () => {
           My <span className="text-primary"> Skills</span>
         </h2>
 
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, key) => (
-            <button
-              key={key}
-              onClick={() => setActiveCategory(category)}
-              className={cn(
-                "px-6 py-2.5 rounded-full transition-all duration-300 capitalize font-medium",
-                activeCategory === category
-                  ? "bg-gradient-to-r from-primary to-secondary text-white shadow-lg"
-                  : "bg-card border-2 border-border text-foreground hover:border-primary hover:text-primary"
-              )}
-            >
-              {category}
-            </button>
+        <Tabs defaultValue="all" className="w-full">
+          <TabsList className="grid w-full max-w-md mx-auto grid-cols-4 mb-12">
+            {categories.map((category) => (
+              <TabsTrigger key={category} value={category} className="capitalize">
+                {category}
+              </TabsTrigger>
+            ))}
+          </TabsList>
+
+          {categories.map((category) => (
+            <TabsContent key={category} value={category}>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                {skills
+                  .filter((skill) => category === "all" || skill.category === category)
+                  .map((skill, key) => (
+                    <Card key={key} className="card-hover group relative overflow-hidden">
+                      <CardContent className="p-6">
+                        {/* Icon and Name */}
+                        <div className="flex items-center justify-between mb-4">
+                          <div className="flex items-center gap-3">
+                            <span className="text-3xl animate-float" style={{ animationDelay: `${key * 0.1}s` }}>
+                              {skill.icon}
+                            </span>
+                            <h3 className="font-semibold text-lg">{skill.name}</h3>
+                          </div>
+                          <Badge variant="secondary">{skill.level}%</Badge>
+                        </div>
+
+                        {/* Progress Bar */}
+                        <div className="relative h-2 bg-muted rounded-full overflow-hidden">
+                          <div
+                            className="h-full bg-gradient-to-r from-primary via-secondary to-accent rounded-full transition-all duration-1000 ease-out"
+                            style={{
+                              width: `${skill.level}%`,
+                              animation: 'slide-in-left 1s ease-out forwards',
+                              animationDelay: `${key * 0.05}s`
+                            }}
+                          />
+                        </div>
+
+                        {/* Shimmer Effect on Hover */}
+                        <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity" />
+                      </CardContent>
+                    </Card>
+                  ))}
+              </div>
+            </TabsContent>
           ))}
-        </div>
-
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {filteredSkills.map((skill, key) => (
-            <div
-              key={key}
-              className="gradient-border p-6 card-hover group relative overflow-hidden"
-            >
-              {/* Icon and Name */}
-              <div className="flex items-center gap-3 mb-4">
-                <span className="text-3xl animate-float" style={{ animationDelay: `${key * 0.1}s` }}>
-                  {skill.icon}
-                </span>
-                <h3 className="font-semibold text-lg">{skill.name}</h3>
-              </div>
-
-              {/* Progress Bar */}
-              <div className="relative h-2 bg-muted rounded-full overflow-hidden">
-                <div
-                  className="h-full bg-gradient-to-r from-primary via-secondary to-accent rounded-full transition-all duration-1000 ease-out"
-                  style={{
-                    width: `${skill.level}%`,
-                    animation: 'slide-in-left 1s ease-out forwards',
-                    animationDelay: `${key * 0.05}s`
-                  }}
-                />
-              </div>
-
-              {/* Level Indicator */}
-              <div className="mt-2 text-right">
-                <span className="text-xs font-medium text-primary">{skill.level}%</span>
-              </div>
-
-              {/* Shimmer Effect on Hover */}
-              <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity" />
-            </div>
-          ))}
-        </div>
+        </Tabs>
       </div>
     </section>
   );

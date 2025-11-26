@@ -1,4 +1,9 @@
-﻿import { ArrowRight, ExternalLink, Github } from "lucide-react";
+﻿import { ArrowRight, ExternalLink, Github, Info } from "lucide-react";
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { useState } from "react";
 
 const projects = [
   {
@@ -34,6 +39,8 @@ const projects = [
 ];
 
 export const ProjectsSection = () => {
+  const [selectedProject, setSelectedProject] = useState(null);
+
   return (
     <section id="projects" className="py-24 px-4 relative">
       <div className="container mx-auto max-w-5xl">
@@ -44,13 +51,12 @@ export const ProjectsSection = () => {
           Here are some of my recent projects. Each project was carefully
           crafted with attention to detail, performance, and user experience.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" style={{ perspective: '1000px' }}>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, key) => (
-            <div
+            <Card
               key={key}
-              className="group card-gradient-border card-elevated relative overflow-hidden transition-all duration-500 hover:scale-105 hover:-translate-y-2"
+              className="group overflow-hidden transition-all duration-500 hover:scale-105 hover:-translate-y-2 card-elevated"
               style={{
-                transformStyle: 'preserve-3d',
                 animation: `slide-in-up 0.6s ease-out ${key * 0.1}s forwards`,
                 opacity: 0
               }}
@@ -63,65 +69,85 @@ export const ProjectsSection = () => {
                   loading="lazy"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-secondary/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-
-                {/* Floating Badge */}
-                <div className="absolute top-4 right-4 bg-gradient-to-r from-primary to-secondary text-white px-3 py-1 rounded-full text-xs font-bold opacity-0 group-hover:opacity-100 transition-all duration-300 transform translate-y-2 group-hover:translate-y-0">
-                  View Projects
-                </div>
               </div>
-              <div className="p-6 bg-card relative">
-                <div className="flex flex-wrap gap-2 mb-4">
+
+              <CardHeader>
+                <div className="flex flex-wrap gap-2 mb-3">
                   {project.tags.map((tag, index) => (
-                    <span
-                      key={index}
-                      className="px-3 py-1 text-xs font-semibold rounded-full bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 text-primary border border-primary/30 hover:border-primary hover:scale-110 transition-all duration-300 cursor-default shimmer"
-                    >
+                    <Badge key={index} variant="secondary" className="hover:scale-110 transition-all">
                       {tag}
-                    </span>
+                    </Badge>
                   ))}
                 </div>
-                <h3 className="text-xl font-bold mb-2 bg-clip-text text-transparent bg-gradient-to-r from-foreground via-primary to-secondary group-hover:from-primary group-hover:via-secondary group-hover:to-accent transition-all duration-500">
+                <CardTitle className="group-hover:text-primary transition-colors">
                   {project.title}
-                </h3>
-                <p className="text-muted-foreground text-sm mb-4 leading-relaxed">
-                  {project.description}
-                </p>
-                <div className="flex justify-between items-center pt-4 border-t border-border">
-                  <div className="flex space-x-3">
-                    <a
-                      href={project.demoUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 rounded-lg bg-gradient-to-r from-primary/10 to-secondary/10 hover:from-primary hover:to-secondary hover:text-white transition-all duration-300 icon-glow hover:scale-110 hover:rotate-3"
-                    >
+                </CardTitle>
+                <CardDescription>{project.description}</CardDescription>
+              </CardHeader>
+
+              <CardFooter className="flex justify-between items-center gap-2">
+                <div className="flex gap-2">
+                  <Button asChild size="icon" variant="outline">
+                    <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink size={18} />
                     </a>
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="p-2.5 rounded-lg bg-gradient-to-r from-secondary/10 to-accent/10 hover:from-secondary hover:to-accent hover:text-white transition-all duration-300 icon-glow hover:scale-110 hover:-rotate-3"
-                    >
+                  </Button>
+                  <Button asChild size="icon" variant="outline">
+                    <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                       <Github size={18} />
                     </a>
-                  </div>
+                  </Button>
                 </div>
 
-                {/* Decorative Corner */}
-                <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-br from-primary/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </div>
-            </div>
+                <Dialog>
+                  <DialogTrigger asChild>
+                    <Button variant="ghost" size="sm" onClick={() => setSelectedProject(project)}>
+                      <Info size={16} className="mr-2" />
+                      Details
+                    </Button>
+                  </DialogTrigger>
+                  <DialogContent>
+                    <DialogHeader>
+                      <DialogTitle>{project.title}</DialogTitle>
+                      <DialogDescription>{project.description}</DialogDescription>
+                    </DialogHeader>
+                    <div className="space-y-4">
+                      <img src={project.image} alt={project.title} className="w-full rounded-lg" />
+                      <div>
+                        <h4 className="font-semibold mb-2">Technologies Used:</h4>
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.map((tag, index) => (
+                            <Badge key={index}>{tag}</Badge>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex gap-2">
+                        <Button asChild className="flex-1">
+                          <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink size={16} className="mr-2" />
+                            Live Demo
+                          </a>
+                        </Button>
+                        <Button asChild variant="outline" className="flex-1">
+                          <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                            <Github size={16} className="mr-2" />
+                            Source Code
+                          </a>
+                        </Button>
+                      </div>
+                    </div>
+                  </DialogContent>
+                </Dialog>
+              </CardFooter>
+            </Card>
           ))}
         </div>
         <div className="text-center mt-12">
-          <a
-            className="cosmic-button w-fit flex items-center mx-auto gap-2 shimmer"
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://github.com/AnirbanMadhu"
-          >
-            Check My Github <ArrowRight size={16} />
-          </a>
+          <Button asChild size="lg" className="cosmic-button shimmer">
+            <a href="https://github.com/AnirbanMadhu" target="_blank" rel="noopener noreferrer">
+              Check My Github <ArrowRight size={16} className="ml-2" />
+            </a>
+          </Button>
         </div>
       </div>
     </section>

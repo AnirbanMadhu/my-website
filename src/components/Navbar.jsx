@@ -2,6 +2,8 @@ import { cn } from "@/lib/utils";
 import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { ThemeToggle } from "./ThemeToggle";
+import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
+import { Fragment } from "react";
 
 const navItems = [
   { name: "Home", href: "#hero" },
@@ -91,40 +93,56 @@ export const Navbar = () => {
         </div>
       </nav>
 
-      {/* Mobile menu overlay */}
-      {isMenuOpen && (
-        <div
-          className={cn(
-            "fixed inset-0 z-[105] md:hidden",
-            "bg-background min-h-screen w-full",
-            "flex items-center justify-center",
-            "animate-in fade-in duration-300"
-          )}
-        >
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
-          <div className="relative z-10 flex flex-col items-center justify-center gap-6 px-8 w-full">
-            {navItems.map((item, key) => (
-              <a
-                key={key}
-                href={item.href}
-                className={cn(
-                  "text-3xl font-bold text-foreground hover:text-primary",
-                  "transition-all duration-300 text-center",
-                  "hover:scale-110 transform",
-                  "animate-in slide-in-from-top-4 fade-in"
-                )}
-                onClick={() => setIsMenuOpen(false)}
-                style={{
-                  animationDelay: `${key * 75}ms`,
-                  animationFillMode: "backwards"
-                }}
+      {/* Mobile menu overlay with Headless UI */}
+      <Transition show={isMenuOpen} as={Fragment}>
+        <Dialog as="div" className="relative z-[105] md:hidden" onClose={setIsMenuOpen}>
+          <TransitionChild
+            as={Fragment}
+            enter="ease-out duration-300"
+            enterFrom="opacity-0"
+            enterTo="opacity-100"
+            leave="ease-in duration-200"
+            leaveFrom="opacity-100"
+            leaveTo="opacity-0"
+          >
+            <div className="fixed inset-0 bg-background" />
+          </TransitionChild>
+
+          <div className="fixed inset-0 overflow-y-auto">
+            <div className="flex min-h-full items-center justify-center p-4">
+              <TransitionChild
+                as={Fragment}
+                enter="ease-out duration-300"
+                enterFrom="opacity-0 scale-95"
+                enterTo="opacity-100 scale-100"
+                leave="ease-in duration-200"
+                leaveFrom="opacity-100 scale-100"
+                leaveTo="opacity-0 scale-95"
               >
-                {item.name}
-              </a>
-            ))}
+                <DialogPanel className="w-full transform overflow-hidden transition-all">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+                  <div className="relative z-10 flex flex-col items-center justify-center gap-6 px-8 w-full min-h-screen">
+                    {navItems.map((item, key) => (
+                      <a
+                        key={key}
+                        href={item.href}
+                        className={cn(
+                          "text-3xl font-bold text-foreground hover:text-primary",
+                          "transition-all duration-300 text-center",
+                          "hover:scale-110 transform"
+                        )}
+                        onClick={() => setIsMenuOpen(false)}
+                      >
+                        {item.name}
+                      </a>
+                    ))}
+                  </div>
+                </DialogPanel>
+              </TransitionChild>
+            </div>
           </div>
-        </div>
-      )}
+        </Dialog>
+      </Transition>
     </>
   );
 };

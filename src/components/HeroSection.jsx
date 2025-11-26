@@ -2,6 +2,8 @@ import Tilt from "react-parallax-tilt";
 import { ArrowDown } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 import { ParticlesBackground } from "./ParticlesBackground";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export const HeroSection = () => {
   return (
@@ -38,6 +40,12 @@ export const HeroSection = () => {
         </div>
 
         <div className="space-y-6">
+          <div className="flex justify-center mb-4">
+            <Badge variant="outline" className="animate-bounce-in px-4 py-2 text-sm">
+              ✨ Open for Opportunities
+            </Badge>
+          </div>
+
           <h1 className="text-4xl md:text-6xl font-bold tracking-tight relative">
             <span className="opacity-0 animate-fade-in inline-block">Hi, I&apos;m&nbsp;</span>
             <span className="opacity-0 animate-bounce-in inline-block" style={{ animationDelay: '0.2s' }}>
@@ -73,10 +81,17 @@ export const HeroSection = () => {
             life together!
           </p>
 
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4">
-            <a href="#projects" className="cosmic-button">
-              View My Work
-            </a>
+          <div className="pt-4 opacity-0 animate-fade-in-delay-4 flex justify-center gap-4">
+            <Button asChild size="lg" className="cosmic-button">
+              <a href="#projects">
+                View My Work
+              </a>
+            </Button>
+            <Button asChild variant="outline" size="lg">
+              <a href="#contact">
+                Contact Me
+              </a>
+            </Button>
           </div>
         </div>
       </div>
