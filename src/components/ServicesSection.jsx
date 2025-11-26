@@ -377,7 +377,7 @@ export const ServicesSection = () => {
         </div>
 
         {/* Tech Stack Section */}
-        <div className="mb-20 bg-secondary/30 rounded-2xl p-8 md:p-12">
+        <div className="mb-20 rounded-2xl p-8 md:p-12">
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-center">
             <Code2 className="inline-block h-8 w-8 text-primary mr-2 mb-1" />
             Tech <span className="text-primary">Stack</span>
