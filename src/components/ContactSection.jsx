@@ -150,14 +150,14 @@ export const ContactSection = () => {
             </div>
           </div>
 
-          <Card className="card-hover opacity-0 animate-slide-in-right">
+          <Card className="card-hover opacity-0 animate-slide-in-right spotlight tilt-hover transform-gpu hover:shadow-2xl transition-all duration-500 morphing-border">
             <CardHeader>
-              <CardTitle className="text-gradient">Send a Message</CardTitle>
+              <CardTitle className="text-gradient text-shimmer">Send a Message</CardTitle>
               <CardDescription>Fill out the form below and I'll get back to you soon.</CardDescription>
             </CardHeader>
             <CardContent>
               <form className="space-y-6" onSubmit={handleSubmit}>
-                <div>
+                <div className="stagger-item">
                   <label htmlFor="name" className="block text-sm font-medium mb-2">
                     Your Name
                   </label>
@@ -167,10 +167,11 @@ export const ContactSection = () => {
                     name="name"
                     required
                     placeholder="Enter Your Name"
+                    className="hover:border-primary focus:border-primary transition-all duration-300 hover:shadow-lg hover:shadow-primary/20"
                   />
                 </div>
 
-                <div>
+                <div className="stagger-item">
                   <label htmlFor="email" className="block text-sm font-medium mb-2">
                     Your Email
                   </label>
@@ -180,10 +181,11 @@ export const ContactSection = () => {
                     name="email"
                     required
                     placeholder="Enter Your Email"
+                    className="hover:border-secondary focus:border-secondary transition-all duration-300 hover:shadow-lg hover:shadow-secondary/20"
                   />
                 </div>
 
-                <div>
+                <div className="stagger-item">
                   <label htmlFor="message" className="block text-sm font-medium mb-2">
                     Your Message
                   </label>
@@ -192,7 +194,7 @@ export const ContactSection = () => {
                     name="message"
                     required
                     rows={5}
-                    className="resize-none"
+                    className="resize-none hover:border-accent focus:border-accent transition-all duration-300 hover:shadow-lg hover:shadow-accent/20"
                     placeholder="Hello, I'd like to talk about..."
                   />
                 </div>
@@ -201,13 +203,21 @@ export const ContactSection = () => {
                   type="submit"
                   disabled={isSubmitting}
                   className={cn(
-                    "cosmic-button w-full group",
+                    "cosmic-button w-full group hover:shadow-2xl hover:scale-105 transition-all duration-300",
                     isSubmitting && "opacity-70 cursor-not-allowed"
                   )}
                   size="lg"
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
-                  <Send size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
+                  {isSubmitting ? (
+                    <>
+                      <span className="animate-pulse">Sending...</span>
+                    </>
+                  ) : (
+                    <>
+                      Send Message
+                      <Send size={16} className="ml-2 group-hover:translate-x-2 group-hover:rotate-12 transition-all duration-300" />
+                    </>
+                  )}
                 </Button>
               </form>
             </CardContent>

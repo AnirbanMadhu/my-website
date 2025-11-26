@@ -1,4 +1,4 @@
-// ✨ New UI Components - Export Index
+// ✨ Component Export Index
 // Import any component from this file: import { ParticlesBackground } from '@/components';
 
 // Particle Effects
@@ -24,9 +24,12 @@ export { FloatingElement, FloatingCards } from './FloatingElements';
 
 // Toast Notifications
 export { ToastProvider, ToastDemo } from './ToastProvider';
-// Note: Import showToast directly from '../utils/toast' instead
 
-// Existing Components (if needed)
+// Background Components
+export { GradientBlobs, GradientBlobsSimple } from './GradientBlobs';
+export { FloatingShapes } from './FloatingShapes';
+
+// Main Page Components
 export { HeroSection } from './HeroSection';
 export { AboutSection } from './AboutSection';
 export { SkillsSection } from './SkillsSection';

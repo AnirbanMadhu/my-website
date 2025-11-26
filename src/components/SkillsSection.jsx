@@ -53,23 +53,23 @@ export const SkillsSection = () => {
                 {skills
                   .filter((skill) => category === "all" || skill.category === category)
                   .map((skill, key) => (
-                    <Card key={key} className="card-hover group relative overflow-hidden">
+                    <Card key={key} className="card-hover group relative overflow-hidden tilt-hover spotlight transform-gpu hover:shadow-2xl transition-all duration-500">
                       <CardContent className="p-6">
                         {/* Icon and Name */}
                         <div className="flex items-center justify-between mb-4">
                           <div className="flex items-center gap-3">
-                            <span className="text-3xl animate-float" style={{ animationDelay: `${key * 0.1}s` }}>
+                            <span className="text-3xl animate-float group-hover:scale-125 transition-transform duration-300" style={{ animationDelay: `${key * 0.1}s` }}>
                               {skill.icon}
                             </span>
-                            <h3 className="font-semibold text-lg">{skill.name}</h3>
+                            <h3 className="font-semibold text-lg group-hover:text-primary transition-colors">{skill.name}</h3>
                           </div>
-                          <Badge variant="secondary">{skill.level}%</Badge>
+                          <Badge variant="secondary" className="group-hover:scale-110 transition-transform">{skill.level}%</Badge>
                         </div>
 
                         {/* Progress Bar */}
                         <div className="relative h-2 bg-muted rounded-full overflow-hidden">
                           <div
-                            className="h-full bg-gradient-to-r from-primary via-secondary to-accent rounded-full transition-all duration-1000 ease-out"
+                            className="h-full bg-gradient-to-r from-primary via-secondary to-accent rounded-full transition-all duration-1000 ease-out group-hover:shadow-[0_0_10px_rgba(99,102,241,0.8)]"
                             style={{
                               width: `${skill.level}%`,
                               animation: 'slide-in-left 1s ease-out forwards',
@@ -80,6 +80,9 @@ export const SkillsSection = () => {
 
                         {/* Shimmer Effect on Hover */}
                         <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity" />
+
+                        {/* Glow Effect */}
+                        <div className="absolute inset-0 rounded-lg bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-xl" />
                       </CardContent>
                     </Card>
                   ))}

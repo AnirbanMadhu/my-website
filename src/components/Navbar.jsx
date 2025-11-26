@@ -70,10 +70,12 @@ export const Navbar = () => {
               <a
                 key={key}
                 href={item.href}
-                className="relative text-foreground/80 hover:text-primary transition-colors duration-300 font-medium group"
+                className="relative text-foreground/80 hover:text-primary transition-all duration-300 font-medium group hover:scale-110"
+                data-text={item.name}
               >
-                {item.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300" />
+                <span className="relative z-10">{item.name}</span>
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-primary to-secondary group-hover:w-full transition-all duration-300 rounded-full" />
+                <span className="absolute inset-0 bg-primary/5 rounded-lg scale-0 group-hover:scale-100 transition-transform duration-300 -z-10" />
               </a>
             ))}
             <ThemeToggle />

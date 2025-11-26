@@ -55,7 +55,7 @@ export const ProjectsSection = () => {
           {projects.map((project, key) => (
             <Card
               key={key}
-              className="group overflow-hidden transition-all duration-500 hover:scale-105 hover:-translate-y-2 card-elevated"
+              className="group overflow-hidden transition-all duration-500 hover:scale-105 hover:-translate-y-2 card-elevated spotlight tilt-hover transform-gpu hover:shadow-[0_20px_50px_rgba(99,102,241,0.4)]"
               style={{
                 animation: `slide-in-up 0.6s ease-out ${key * 0.1}s forwards`,
                 opacity: 0
@@ -74,25 +74,25 @@ export const ProjectsSection = () => {
               <CardHeader>
                 <div className="flex flex-wrap gap-2 mb-3">
                   {project.tags.map((tag, index) => (
-                    <Badge key={index} variant="secondary" className="hover:scale-110 transition-all">
+                    <Badge key={index} variant="secondary" className="hover:scale-110 transition-all hover:shadow-lg hover:shadow-primary/50 animate-float-slow cursor-default" style={{ animationDelay: `${index * 0.1}s` }}>
                       {tag}
                     </Badge>
                   ))}
                 </div>
-                <CardTitle className="group-hover:text-primary transition-colors">
+                <CardTitle className="group-hover:text-primary transition-colors text-shimmer">
                   {project.title}
                 </CardTitle>
-                <CardDescription>{project.description}</CardDescription>
+                <CardDescription className="group-hover:text-foreground transition-colors">{project.description}</CardDescription>
               </CardHeader>
 
               <CardFooter className="flex justify-between items-center gap-2">
                 <div className="flex gap-2">
-                  <Button asChild size="icon" variant="outline">
+                  <Button asChild size="icon" variant="outline" className="hover:bg-primary hover:text-white hover:scale-110 hover:rotate-6 transition-all duration-300">
                     <a href={project.demoUrl} target="_blank" rel="noopener noreferrer">
                       <ExternalLink size={18} />
                     </a>
                   </Button>
-                  <Button asChild size="icon" variant="outline">
+                  <Button asChild size="icon" variant="outline" className="hover:bg-secondary hover:text-white hover:scale-110 hover:-rotate-6 transition-all duration-300">
                     <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                       <Github size={18} />
                     </a>
@@ -101,7 +101,7 @@ export const ProjectsSection = () => {
 
                 <Dialog>
                   <DialogTrigger asChild>
-                    <Button variant="ghost" size="sm" onClick={() => setSelectedProject(project)}>
+                    <Button variant="ghost" size="sm" onClick={() => setSelectedProject(project)} className="hover:bg-primary/10 hover:scale-105 transition-all">
                       <Info size={16} className="mr-2" />
                       Details
                     </Button>

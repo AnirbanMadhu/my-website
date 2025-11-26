@@ -75,57 +75,60 @@ export const AboutSection = () => {
           </div>
 
           <div className="grid grid-cols-1 gap-6 opacity-0 animate-slide-in-right">
-            <Card className="card-hover group relative overflow-hidden">
+            <Card className="card-hover group relative overflow-hidden tilt-hover spotlight transform-gpu hover:shadow-2xl transition-all duration-500">
               <CardContent className="p-6">
                 <div className="flex items-start gap-4 relative z-10">
-                  <div className="p-3 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 group-hover:scale-110 transition-transform duration-300 animate-float">
+                  <div className="p-3 rounded-full bg-gradient-to-br from-primary/20 to-primary/10 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 animate-float glow-pulse">
                     <Code className="h-6 w-6 text-primary" />
                   </div>
                   <div className="text-left">
-                    <CardTitle className="mb-2 group-hover:text-primary transition-colors">Web Development</CardTitle>
-                    <CardDescription>
+                    <CardTitle className="mb-2 group-hover:text-primary transition-colors group-hover:scale-105">Web Development</CardTitle>
+                    <CardDescription className="group-hover:text-foreground transition-colors">
                       Creating responsive websites and web applications with
                       modern frameworks.
                     </CardDescription>
                   </div>
                 </div>
-                <div className="absolute bottom-0 right-0 w-24 h-24 bg-primary/5 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-primary/20 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity blur-2xl" />
+                <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity" />
               </CardContent>
             </Card>
 
-            <Card className="card-hover group relative overflow-hidden" style={{ animationDelay: '0.1s' }}>
+            <Card className="card-hover group relative overflow-hidden tilt-hover spotlight transform-gpu hover:shadow-2xl transition-all duration-500" style={{ animationDelay: '0.1s' }}>
               <CardContent className="p-6">
                 <div className="flex items-start gap-4 relative z-10">
-                  <div className="p-3 rounded-full bg-gradient-to-br from-secondary/20 to-secondary/10 group-hover:scale-110 transition-transform duration-300 animate-float" style={{ animationDelay: '0.5s' }}>
+                  <div className="p-3 rounded-full bg-gradient-to-br from-secondary/20 to-secondary/10 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 animate-float glow-pulse" style={{ animationDelay: '0.5s' }}>
                     <User className="h-6 w-6 text-secondary" />
                   </div>
                   <div className="text-left">
-                    <CardTitle className="mb-2 group-hover:text-secondary transition-colors">UI/UX Design</CardTitle>
-                    <CardDescription>
+                    <CardTitle className="mb-2 group-hover:text-secondary transition-colors group-hover:scale-105">UI/UX Design</CardTitle>
+                    <CardDescription className="group-hover:text-foreground transition-colors">
                       Designing intuitive user interfaces and seamless user
                       experiences.
                     </CardDescription>
                   </div>
                 </div>
-                <div className="absolute bottom-0 right-0 w-24 h-24 bg-secondary/5 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-secondary/20 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity blur-2xl" />
+                <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity" />
               </CardContent>
             </Card>
 
-            <Card className="card-hover group relative overflow-hidden" style={{ animationDelay: '0.2s' }}>
+            <Card className="card-hover group relative overflow-hidden tilt-hover spotlight transform-gpu hover:shadow-2xl transition-all duration-500" style={{ animationDelay: '0.2s' }}>
               <CardContent className="p-6">
                 <div className="flex items-start gap-4 relative z-10">
-                  <div className="p-3 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 group-hover:scale-110 transition-transform duration-300 animate-float" style={{ animationDelay: '1s' }}>
+                  <div className="p-3 rounded-full bg-gradient-to-br from-accent/20 to-accent/10 group-hover:scale-125 group-hover:rotate-12 transition-all duration-300 animate-float glow-pulse" style={{ animationDelay: '1s' }}>
                     <Briefcase className="h-6 w-6 text-accent" />
                   </div>
                   <div className="text-left">
-                    <CardTitle className="mb-2 group-hover:text-accent transition-colors">Project Management</CardTitle>
-                    <CardDescription>
+                    <CardTitle className="mb-2 group-hover:text-accent transition-colors group-hover:scale-105">Project Management</CardTitle>
+                    <CardDescription className="group-hover:text-foreground transition-colors">
                       Leading projects from conception to completion with agile
                       methodologies.
                     </CardDescription>
                   </div>
                 </div>
-                <div className="absolute bottom-0 right-0 w-24 h-24 bg-accent/5 rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity" />
+                <div className="absolute bottom-0 right-0 w-32 h-32 bg-gradient-to-br from-accent/20 to-transparent rounded-tl-full opacity-0 group-hover:opacity-100 transition-opacity blur-2xl" />
+                <div className="absolute inset-0 shimmer opacity-0 group-hover:opacity-100 transition-opacity" />
               </CardContent>
             </Card>
           </div>

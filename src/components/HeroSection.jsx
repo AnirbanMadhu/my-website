@@ -41,18 +41,18 @@ export const HeroSection = () => {
 
         <div className="space-y-6">
           <div className="flex justify-center mb-4">
-            <Badge variant="outline" className="animate-bounce-in px-4 py-2 text-sm">
+            <Badge variant="outline" className="animate-bounce-in px-4 py-2 text-sm glow-pulse backdrop-blur-sm">
               ✨ Open for Opportunities
             </Badge>
           </div>
 
-          <h1 className="text-4xl md:text-6xl font-bold tracking-tight relative">
-            <span className="opacity-0 animate-fade-in inline-block">Hi, I&apos;m&nbsp;</span>
-            <span className="opacity-0 animate-bounce-in inline-block" style={{ animationDelay: '0.2s' }}>
-              <span className="text-primary drop-shadow-lg">Anirban&nbsp;</span>
+          <h1 className="text-4xl md:text-6xl font-bold tracking-tight relative perspective-1000">
+            <span className="opacity-0 animate-fade-in inline-block hover:scale-110 transition-transform cursor-default">Hi, I&apos;m&nbsp;</span>
+            <span className="opacity-0 animate-bounce-in inline-block hover:animate-[swing_1s_ease-in-out] cursor-default" style={{ animationDelay: '0.2s' }}>
+              <span className="text-primary drop-shadow-lg text-shimmer">Anirban&nbsp;</span>
             </span>
-            <span className="opacity-0 animate-scale-in inline-block" style={{ animationDelay: '0.4s' }}>
-              <span className="text-gradient font-extrabold drop-shadow-2xl">Madhu</span>
+            <span className="opacity-0 animate-scale-in inline-block hover:rotate-3 transition-transform cursor-default" style={{ animationDelay: '0.4s' }}>
+              <span className="text-gradient font-extrabold drop-shadow-2xl neon-glow">Madhu</span>
             </span>
           </h1>
 
@@ -81,15 +81,17 @@ export const HeroSection = () => {
             life together!
           </p>
 
-          <div className="pt-4 opacity-0 animate-fade-in-delay-4 flex justify-center gap-4">
-            <Button asChild size="lg" className="cosmic-button">
-              <a href="#projects">
-                View My Work
+          <div className="pt-4 opacity-0 animate-fade-in-delay-4 flex justify-center gap-4 flex-wrap">
+            <Button asChild size="lg" className="cosmic-button ripple-container group relative overflow-hidden hover:shadow-2xl hover:scale-110 transition-all duration-300">
+              <a href="#projects" className="flex items-center gap-2">
+                <span className="relative z-10">View My Work</span>
+                <span className="inline-block group-hover:translate-x-1 transition-transform">→</span>
               </a>
             </Button>
-            <Button asChild variant="outline" size="lg">
-              <a href="#contact">
-                Contact Me
+            <Button asChild variant="outline" size="lg" className="hover:bg-primary hover:text-white transition-all duration-300 hover:scale-110 hover:shadow-xl border-2 hover:border-primary">
+              <a href="#contact" className="flex items-center gap-2">
+                <span>Contact Me</span>
+                <span className="inline-block group-hover:rotate-12 transition-transform">✉️</span>
               </a>
             </Button>
           </div>

@@ -1,14 +1,16 @@
-import { Navbar } from "../components/Navbar";
-import { StarBackground } from "@/components/StarBackground";
-import { GradientBlobsSimple } from "../components/GradientBlobs";
-import { FloatingShapes } from "../components/FloatingShapes";
-import { HeroSection } from "../components/HeroSection";
-import { AboutSection } from "../components/AboutSection";
-import { SkillsSection } from "../components/SkillsSection";
-import { ServicesSection } from "../components/ServicesSection";
-import { ProjectsSection } from "../components/ProjectsSection";
-import { ContactSection } from "../components/ContactSection";
-import { Footer } from "../components/Footer";
+import {
+  Navbar,
+  StarBackground,
+  GradientBlobsSimple,
+  FloatingShapes,
+  HeroSection,
+  AboutSection,
+  SkillsSection,
+  ServicesSection,
+  ProjectsSection,
+  ContactSection,
+  Footer,
+} from "@/components";
 
 export const Home = () => {
   return (

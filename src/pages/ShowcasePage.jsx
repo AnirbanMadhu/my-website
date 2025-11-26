@@ -1,12 +1,16 @@
 import { useState } from "react";
-import { ParticlesBackground } from "../components/ParticlesBackground";
-import { AnimatedText, AnimatedTextShowcase } from "../components/AnimatedText";
-import { CarouselShowcase } from "../components/ModernCarousel";
-import { MarqueeSection, TestimonialsMarquee } from "../components/MarqueeSection";
-import { TimelineSection } from "../components/TimelineSection";
-import { StatsSection } from "../components/AnimatedCounter";
-import { FloatingCards } from "../components/FloatingElements";
-import { ToastDemo } from "../components/ToastProvider";
+import {
+  ParticlesBackground,
+  AnimatedText,
+  AnimatedTextShowcase,
+  CarouselShowcase,
+  MarqueeSection,
+  TestimonialsMarquee,
+  TimelineSection,
+  StatsSection,
+  FloatingCards,
+  ToastDemo,
+} from "@/components";
 import { TypeAnimation } from "react-type-animation";
 
 export const ShowcasePage = () => {
