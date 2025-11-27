@@ -24,7 +24,7 @@ export const Home = () => {
       <Navbar />
 
       {/* Main Content */}
-      <main className="relative z-10">
+      <main className="relative z-10 pt-20">
         <HeroSection />
         <AboutSection />
         <SkillsSection />
